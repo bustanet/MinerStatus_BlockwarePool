@@ -7,7 +7,7 @@ import os
 API_KEY = os.getenv("LUX_API")
 API = API(host = "https://api.beta.luxor.tech/graphql", method = 'POST', org = 'luxor', key = API_KEY)
 USER = API.get_subaccounts(1)['data']['users']['edges'][0]['node']['username']
-DEBUG = 1
+DEBUG = 0
 EFFICIENCY_BASELINE = 98 # Measured as a percentage. ie 97% efficiency. 
 HASH_BASELINE = 90000000000000 # Measured in hashes per second 1 TH = 1 X 10^12 hashes per second 
 NUM_WORKERS = 6 # Number of workers in subaccount pool 
