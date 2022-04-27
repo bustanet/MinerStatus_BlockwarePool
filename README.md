@@ -1,4 +1,4 @@
-# Check the Miner Status of BLockware Pool Miners.
+# Check Status of Bockware Pool Miners.
 If you have ASIC miners hosted by Blockware Solutions and are using their Blockware Mining Pool. This program will check the status of your miners/workers and send push notification if their hashrate or efficiency drops below a certain harded coded threshold. Blockware uses Luxor for the API integration, which happens to have a [python client API](https://github.com/LuxorLabs/graphql-python-client). I am using [PushBullet](https://www.pushbullet.com/) for push notifications.
 
 
