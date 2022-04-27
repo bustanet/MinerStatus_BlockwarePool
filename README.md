@@ -12,4 +12,4 @@ If you have ASIC miners hosted by Blockware Solutions and are using their Blockw
     - HASH_BASELINE -> This is a count of Hashes per second. 1TH = 1 * 10^12 or 1,000,000,000,000
     - *NUM_WORKERS -> The number of miners you have. 
 
-*This configuration only takes into account a single subaccount in the blockware inferace, but the program can be easilty updated for other configurations. 
+*This configuration only takes into account a single subaccount with N number of workers, but the program can be easilty updated for other configurations. 
