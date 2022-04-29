@@ -3,8 +3,10 @@ import push_notification
 from datetime import datetime
 import logging
 import sys
+import os
 
-logging.basicConfig(filename='/var/log/miner', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logpath = os.path.dirname(__file__) + "/miner.log"
+logging.basicConfig(filename=logpath, filemode='a', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logging.info('Script Executed')
 
 error_msg = ""
