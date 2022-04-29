@@ -1,4 +1,3 @@
-from re import L
 import worker_status
 import push_notification
 from datetime import datetime
