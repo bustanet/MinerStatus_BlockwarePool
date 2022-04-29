@@ -1,3 +1,4 @@
+from re import L
 import worker_status
 import push_notification
 from datetime import datetime
@@ -9,7 +10,9 @@ logpath = os.path.dirname(__file__) + "/miner.log"
 logging.basicConfig(filename=logpath, filemode='a', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logging.info('Script Executed')
 
-error_msg = ""
+hash_status = ''
+efficiency_status = ''
+error = False
 
 try: 
     hash_status = worker_status.check_miner_efficiency()
@@ -18,19 +21,15 @@ except Exception as ex:
     logging.exception("Error checking miner status.")
     sys.exit()
 else: 
-    if hash_status != None: 
-        error_msg += (hash_status + "\n")
+    if len(hash_status) > 0 or len(efficiency_status) > 0:
+        error_msg = hash_status + "\n" + efficiency_status
+        error = True
 
-    if efficiency_status != None: 
-        error_msg += (efficiency_status + "\n")
-
-if len(error_msg) > 0:
+if error == True:
     try: 
         push_notification.notify("Mining Alert", error_msg)
     except Exception as ex:
         logging.exception("Error sending push notification")
     else:
         logging.info("Miner performance is degraded.")
-        logging.info(error_msg)        
-
-
+        logging.error(error_msg)
